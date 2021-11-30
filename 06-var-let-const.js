@@ -21,19 +21,19 @@
 
 //console.log(area);
 
-const forma = 'quadrado';
-const altura = 5;
-const comprimento = 7; 
-let area;
+// const forma = 'quadrado';
+// const altura = 5;
+// const comprimento = 7; 
+// let area;
 
-if (forma === 'quadrado'){
-    area = altura * comprimento;
-}
-else{
-    area = altura * comprimento / 2; 
-}
+// if (forma === 'quadrado'){
+//     area = altura * comprimento;
+// }
+// else{
+//     area = altura * comprimento / 2; 
+// }
 
-console.log(area);
+// console.log(area);
 
 //var não recomendada por ser muito solta
 //const é uma variavel constante que não altera o valor
@@ -44,3 +44,21 @@ console.log(area);
 
 //let e const têm escopo local, sendo assim, não podem ser acessadas em 
 //outros escopos, e const não pode ter seu valor alterado depois de definido.
+
+function returnCar() {
+
+    let car = 'Land Rover';
+
+    if (car === 'Land Rover') {
+
+        let car = 'Ferrari';
+
+        console.log('Dentro do if: ' + car);
+
+    }
+
+    console.log('Fora do if: ' + car);
+
+}
+
+returnCar();
