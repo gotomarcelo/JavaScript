@@ -236,7 +236,7 @@ console.log(5 + 6);
 </script>
 ```
 
-> Quando estamos aprendendo a codificar o JavaScript, não vamos direto ao HTML, fazemos o algotitmo em um IDE, portanto para fazermos que a saída do código saia no terminal, usamos o Node.JS  (https://nodejs.org/en/). E portanto é usado a saída `console.log()`.
+> Quando estamos aprendendo a codificar o JavaScript, não vamos direto ao HTML, fazemos o algotitmo em um IDE, portanto para fazermos que a saída do código saia no terminal, usamos o <a href="https://nodejs.org/en/">Node.JS</a>. E portanto é usado a saída `console.log()`.
 
 <h2>Formas de saídas</h2>
 <p>Ao escrevermos uma saída, normalmente queremos que essa saia legível, não mostrando somente o resultado, então há formas de escrever a saída:</p>
@@ -248,7 +248,7 @@ const nome = "Marcelo";
 console.log("O meu nome é " + nome ".");
 ```
 <h3>Template String</h3>
-<p>É uma forma mais prática de escrever a saída de uma variiável, basta envolver a string toda com acentos graves e o placeholder (variável) é envolta com ${}, ficando mais prático para escrever.</p>
+<p>É uma forma mais prática de escrever a saída de uma variiável, basta envolver a string toda com acentos graves e o placeholder (variável) é envolta com ${ }, ficando mais prático para escrever.</p>
 
 ```js
 const nome = "Marcelo";
@@ -256,3 +256,48 @@ console.log(`O meu nome é ${nome}.`);
 ```
 
 > Apesar de ser usado em console.log() o template string é também usado pesadamente em <a href="https://styled-components.com">styled components</a>.
+
+<h1>Funções</h1>
+<p>Uma função é um bloco de códigos designados a fazer uma determinada tarefa, e só é executada quando chamada.</p>
+<p>Existem 4 maneiras de se fazer uma função em JavaScript, são essas:</p>
+<h2><li>Declaração de função:</li></h2>
+
+É a forma mais básica e intuitiva de se fazer uma função, é necessário chamar a palavra-chave `function`, seguido pelo nome da função, entre parentesis os argumentos e a expressão a ser executada entre chaves com o retorno.
+
+<p>Em todas os exemplos de funções vamos escrever uma função que se retorna o seu quadrado.</p>
+
+```js
+function square(x) {
+    return x * x;
+}
+```
+<h2><li>Expressão de função:</li></h2>
+
+Essa forma de criar uma função, é expressa, inicialmente se declara uma variável que será o nome da função, e após o operador de igualdade, é chamado a palavra chave `function` com o(s) argumento(s) entre parentesis, e a expressão a ser executada entre chaves.  
+
+
+```js
+const square = function(x) {
+    return x * x;
+}
+```
+<h2><li>Expressão de Arrow function:</li></h2>
+
+Essa forma não é necessário chamar a palavra-chave `function`, mas a delcaração se dá pela seta (=>), e a expressão a ser executada entre chaves.
+
+```js
+const square = x => {
+    return x * x;
+}
+```
+<h2><li>Expressão concisa de Arrow function:</li></h2>
+<p>É a forma de escrever uma função em uma linha só em JavaScript, é uma forma simplificada da anterior dita.</p>
+
+```js
+const square = x => x * x;
+```
+
+>Note que ao fazermos uma expressão de função, ocorre o caso do Hoisting (escopo global), que é o mesmo caso da declaração de variável `var`. E a forma concisa de arrow function é a que mais vemos ao trabalharmos com qualquer biblioteca/framework.
+
+
+
