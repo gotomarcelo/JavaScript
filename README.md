@@ -206,34 +206,30 @@ isAnalfabeto
   document.getElementById("demo").innerHTML = 5 + 6;
 </script>
 ```
+
 <p>Dessa forma ele pega o elemento pelo id e coloca o reasultado do valor dentro desse.</p>
 
 <h2><li>document.write()</li></h2>
 <p>Forma de escrever no HTML sem precisar pegar ID ou elemento:</p>
 
 ```js
-<script>
-document.write(5 + 6);
-</script>
+<script>document.write(5 + 6);</script>
 ```
+
 <p>Lembrando que caso seja chamado essa saída depois do HTML estar carregado, ele vai sobrepor todo o documento ficando apenas a saída.</p>
 
 <h2><li>window.alert()</li></h2>
 <p>Ao utilizar essa saída, o navegador irá mostrar uma janela sobreposta como popup em cima do header.</p>
 
 ```js
-<script>
-window.alert(5 + 6);
-</script>
+<script>window.alert(5 + 6);</script>
 ```
 
 <h2><li>console.log()</li></h2>
 <p>Essa é uma forma de saída que não é mostrada no HTML, mas no console do navegador (quando usamos a ferramenta de depuração)</p>
 
 ```js
-<script>
-console.log(5 + 6);
-</script>
+<script>console.log(5 + 6);</script>
 ```
 
 > Quando estamos aprendendo a codificar o JavaScript, não vamos direto ao HTML, fazemos o algotitmo em um IDE, portanto para fazermos que a saída do código saia no terminal, usamos o <a href="https://nodejs.org/en/">Node.JS</a>. E portanto é usado a saída `console.log()`.
@@ -247,6 +243,7 @@ console.log(5 + 6);
 const nome = "Marcelo";
 console.log("O meu nome é " + nome ".");
 ```
+
 <h3>Template String</h3>
 <p>É uma forma mais prática de escrever a saída de uma variiável, basta envolver a string toda com acentos graves e o placeholder (variável) é envolta com ${ }, ficando mais prático para escrever.</p>
 
@@ -268,36 +265,161 @@ console.log(`O meu nome é ${nome}.`);
 
 ```js
 function square(x) {
-    return x * x;
+  return x * x;
 }
 ```
+
 <h2><li>Expressão de função:</li></h2>
 
-Essa forma de criar uma função, é expressa, inicialmente se declara uma variável que será o nome da função, e após o operador de igualdade, é chamado a palavra chave `function` com o(s) argumento(s) entre parentesis, e a expressão a ser executada entre chaves.  
-
+Essa forma de criar uma função, é expressa, inicialmente se declara uma variável que será o nome da função, e após o operador de igualdade, é chamado a palavra chave `function` com o(s) argumento(s) entre parentesis, e a expressão a ser executada entre chaves.
 
 ```js
-const square = function(x) {
-    return x * x;
-}
+const square = function (x) {
+  return x * x;
+};
 ```
+
 <h2><li>Expressão de Arrow function:</li></h2>
 
 Essa forma não é necessário chamar a palavra-chave `function`, mas a delcaração se dá pela seta (=>), e a expressão a ser executada entre chaves.
 
 ```js
-const square = x => {
-    return x * x;
-}
+const square = (x) => {
+  return x * x;
+};
 ```
+
 <h2><li>Expressão concisa de Arrow function:</li></h2>
 <p>É a forma de escrever uma função em uma linha só em JavaScript, é uma forma simplificada da anterior dita.</p>
 
 ```js
-const square = x => x * x;
+const square = (x) => x * x;
 ```
 
->Note que ao fazermos uma expressão de função, ocorre o caso do Hoisting (escopo global), que é o mesmo caso da declaração de variável `var`. E a forma concisa de arrow function é a que mais vemos ao trabalharmos com qualquer biblioteca/framework.
+> Note que ao fazermos uma expressão de função, ocorre o caso do Hoisting (escopo global), que é o mesmo caso da declaração de variável `var`. E a forma concisa de arrow function é a que mais vemos ao trabalharmos com qualquer biblioteca/framework.
+
+<h1>Listas (Array) e Matrizes</h1>
+<p>Assim como várias outras linguagens de programação, em JavaScript é definido uma array com os colchetes [ ]. E matrizes, da mesma forma, mas com dois conjuntos de colchetes [ ][ ].</p>
+<p>Os elementos são separados entre vígulas:</p>
+
+```js
+let lista = [1, 2, 3, 4];
+let matriz = [1, 2, 3, 4][(1, 2, 3, 4)];
+```
+
+<h2>Funções em JavaScript para listas:</h2>
+<h3><strong><li>Push</li></strong></h3>
+<p>A função push adiciona um elemtento no final da lista:</p>
+
+```js
+lista.push("elemento");
+console.log(lista);
+>> [1,2,3,4,"elemento"]
+```
+
+<h3><strong><li>Pop</li></strong></h3>
+<p>Ao contrário do push, a função .pop faz com que o último elemento da lista seja removido, e não precisa de nenhum elemento dentro da função, ela é vazia:</p>
+
+```js
+lista.pop();
+console.log(lista);
+>> [1,2,3,4]
+```
+
+<h3><strong><li>Concac</li></strong></h3>
+<p>Derivado do nome concatenação, essa função faz com que duas listas sejam unidas:</p>
+
+```js
+let lista1 = [1,2,3];
+let lista2 = [4,5,6];
+const listaUnida = lista1.concat(lista2);
+console.log(listaUnida):
+>> [1,2,3,4,5,6]
+```
+
+<h3><strong><li>Filter</li></strong></h3>
+<p>Como seu nome já diz, essa função faz um "filtro" em cima da lista em estudo.</p>
+<p>Por exemplo, vamos criar uma função que retorna se o numero é par:</p>
+
+```js
+function ehNumeroPar(valor) {
+  if (valor % 2 == 0) {
+    return valor;
+  }
+}
+```
+
+<p>Agora vamos aplicar o filtro na lista:</p>
+
+```js
+const listaPar = lista.filter(ehNumeroPar);
+console.log(listaPar);
+>> [2,4]
+```
+
+<h3><strong><li>FindIndex</li></strong></h3>
+<p>Esse tipo de função, não vai retornar os numeros de retorno da função, mas o seu índice.</p>
+<p>No entando, se colocarmos essa função como elemento da função findindex, temos como retorno:</p>
+
+```js
+const indiceNumeroPar = lista.findIndex(ehNumeroPar);
+console.log(indiceNumeroPar);
+>> 1
+```
+
+> Note que essa função só retorna o primeiro valor true, ou seja, ele fecha a iteração, retornando o primeiro valor encontrado. E caso não tenha nenhum valor que retorne, o resultado dará `-1`.
+
+<h3><strong><li>LastIndexOf</li></strong></h3>
+<p>Essa função só diferencia da anterior pelo fato de que essa função faz a iteração de trás para frente, então usando o exemplo anterior, temos:</p>
+
+```js
+const ultimoIndiceNumeroPar = lista.lastIndexOf(ehNumeroPar);
+console.log(ultimoIndiceNumeroPar);
+>> 5
+```
+
+<h3><strong><li>ForEach</li></strong></h3>
+<p>Na tradução de seu nome temos "para cada", que define bem o comportamento dessa função, para cada elemento, essa função retorna o valor alterado dependendo da função estabelecida.</p>
+<p>Vamos pegar aquela função já escrita anteriormente, de elevar o numero ao seu quadrado, e fazermos uma pequena alteração:</p>
+
+```js
+function square(x) {
+  console.log(x * x);
+}
+```
+
+<p>E vamos aplicar a função:</p>
+
+```js
+lista.forEach(square);
+>> 1
+>> 4
+>> 9
+>> 16
+```
+<h3><strong><li>Shift</li></strong></h3>
+<p>Com o comportamento bem parecido com o pop, essa função elimina o primeiro elemento da lista, sem precisar salvar em uma nova variável:</p>
+
+```js
+lista.shift();
+console.log(lista);
+>> [2,3,4]
+```
+<h3><strong><li>UnShift</li></strong></h3>
+<p>Em contrapartida da função anterior, a função UnShift adiciona o primeiro termo:</p>
+
+```js
+lista.unshift(1);
+console.log(lista);
+>> [1,2,3,4]
+```
+<h3><strong><li>Sort</li></strong></h3>
+<p>A função sort faz com que os elementos da lista seja redistribuidos de forma da classificação do unicode, onde numeros vem antes de letras, ou seja, ordenar.</p>
+
+```js
+const listaOrdenada = lista.sort()
+console.log()
+```
 
 
 
