@@ -397,6 +397,7 @@ lista.forEach(square);
 >> 9
 >> 16
 ```
+
 <h3><strong><li>Shift</li></strong></h3>
 <p>Com o comportamento bem parecido com o pop, essa função elimina o primeiro elemento da lista, sem precisar salvar em uma nova variável:</p>
 
@@ -405,6 +406,7 @@ lista.shift();
 console.log(lista);
 >> [2,3,4]
 ```
+
 <h3><strong><li>UnShift</li></strong></h3>
 <p>Em contrapartida da função anterior, a função UnShift adiciona o primeiro termo:</p>
 
@@ -413,13 +415,77 @@ lista.unshift(1);
 console.log(lista);
 >> [1,2,3,4]
 ```
+
 <h3><strong><li>Sort</li></strong></h3>
 <p>A função sort faz com que os elementos da lista seja redistribuidos de forma da classificação do unicode, onde numeros vem antes de letras, ou seja, ordenar.</p>
 
 ```js
-const listaOrdenada = lista.sort()
-console.log()
+const listaDesorganizada = ["z", "@", "a", -1, 20, 1, 5];
+const listaOrdenada = listaDesorganizada.sort();
+console.log(listaOrdenada);
+>> [-1, 1, 20, 5, '@', 'a', 'z']
 ```
 
+<h3><strong><li>Splice</li></strong></h3>
+<p>Essa função serve tanto para adicionar elementos ou excluir, em determinado indice indicado:</p>
 
+```js
+array.splice(indice[, deleteCount[, elemento1[, ...[, elementoN]]])
+```
+
+Onde `indice` é um inteiro onde deve iniciar o procedimento na lista, `deleteCount` é um inteiro onde informa a quantidade de elementos após o índice, deve ser excluidos, e o `elemento1` até o `elementoN` são os valores a serem adicionados. Por exemplo:
+
+```js
+const lista3 = [0, 1, 2, 3];
+lista3.splice(3, 1, "três");
+console.log(lista3) >> [0, 1, 2, "três"];
+```
+
+> Caso não seja informado nenhum valor para ser trocado, a função irá somente deletar os elementos, e existe também a forma de adicionar um elemento sem que exclua algum valor simplismente zerando o `deleteCount`.
+
+<h1>Laços e iterações</h1>
+
+Laços e iterações são formas de executar o mesmo método repetidas vezes, mas com valores diferentes. Temos como um exemplo, a função dita mais acima de lista, a `Array.forEach()`, mas não sendo somente para lista, mas para qualquer outro tipo de entrada, com sucessão de valores.
+
+Existem Vários tipos de iterações, são esses:
+
+<h2><li>For:</li></h2>
+<p>A iteração For, é uma forma de ocorrer uma condição, até que ela seja falsa:</p>
+
+```js
+for (let i = 0; i <= 2; i++){
+  console.log(i)
+};
+>> 0
+>> 1
+>> 2
+```
+
+<h2><li>do...while:</li></h2> 
+<p>Esse tipo de iteração fará com o que ocorra o laço até que a condição seja falsa:</p>
+
+```js
+let i = 0;
+do {
+  i += 1;
+  console.log(i);
+} while (i < 2);
+>> 1
+>> 2
+```
+
+<h2><li>while:</li></h2>   
+<p>O while é uma forma mais prática do do..while, essa iteração tem a seguinte construção:</p>
+
+```js
+let n = 0;
+while (n < 2) {
+  n++;
+  console.log(n)
+}
+>> 1
+>> 2
+```
+
+>Tome cuidado com a condição do while, se for uma condição que não há alteração, essa iteração irá ter um laço infinito, como `while(true){console.log(1)};` assim irá mostrar no console 1 para sempre.
 
