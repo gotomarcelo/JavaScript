@@ -15,4 +15,4 @@ function square(numero, callback) {
 }
 
 let somado = soma(x, y, mostrarResultado);
-square(somado, mostrarResultado);
+square(somado);

@@ -6,12 +6,13 @@ function mostrarResultado(num) {
 }
 
 function soma(numero1, numero2, callback) {
-  callback(numero1 + numero2);
-  return(numero1 + numero2);
+  let op = numero1 + numero2
+  callback(op);
 }
 
 function square(numero, callback) {
-  callback(numero * numero);
+  let op = numero**2 
+  callback(op);
 }
 
 let somado = soma(x, y, mostrarResultado);
