@@ -489,3 +489,69 @@ while (n < 2) {
 
 >Tome cuidado com a condição do while, se for uma condição que não há alteração, essa iteração irá ter um laço infinito, como `while(true){console.log(1)};` assim irá mostrar no console 1 para sempre.
 
+<h1>Callbacks</h1>
+<p>Quando estudamos funções em JavaScript, não foi mencionado, mas funções são objetos em JS. E podemos também chamar uma função dentro de uma função, usando a função como parâmetro. Dessa forma podemos modificar um fluxo de hierarquia no Javascript.</p>
+
+<p>Por exemplo, vamos fazer uma função de soma e uma função de multiplicação:<p>
+
+```js
+const x = 10;
+const y = 20;
+
+function soma(numero1,numero2) {
+  return(numero1 + numero2);
+}
+
+let somado = soma(x, y);
+
+function square(numero) {
+  console.log(numero * numero);
+}
+
+square(somado);
+>> 900
+```
+
+<p>Perceba que criamos as funções de cima para baixo, na sua ordem de hierarquia, mas e se construirmos uma função que depende de um determinado resultado de outra função?</p>
+
+```js
+const mensagem = function() {  
+    console.log("Essa mensagem é exibida depois de 3 segundos");
+}
+ 
+setTimeout(mensagem, 3000);
+```
+<p>Dessa forma é apontado que o script só vai executar a função primeira após o término da contagem. O exemplo acima descreve um callback assíncrono, pois espera um resultado para prosseguir.</p>
+<p>Mas então, como ficaria uma ultilização de callback no primeiro exemplo?</p>
+
+```js
+const x = 10;
+const y = 20;
+
+function mostrarResultado(num) {
+  console.log(`O resultado foi ${num}`);
+}
+
+function soma(numero1, numero2, callback) {
+  callback(numero1 + numero2);
+  return(numero1 + numero2);
+}
+
+function square(numero, callback) {
+  callback(numero * numero);
+}
+
+let somado = soma(x, y, mostrarResultado);
+square(somado, mostrarResultado);
+
+>> O resultado foi 30
+>> O resultado foi 900
+```
+<p>O exemplo acima descreve um callback síncrono.</p>
+
+> O termo callback também pode ser escrito como `cb`.
+
+<h1>Funções Importantes</h1>
+
+<h2><li>Map( ):</li></h2> 
+
