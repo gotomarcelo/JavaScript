@@ -3,4 +3,4 @@ function calculaMediaLista(lista) {
   return somaNotas / lista.length;
 }
 const notas = [4,9,10];
-console.log(calculaMediaLista(notas));
+console.log(calcularMediaLista(notas));
