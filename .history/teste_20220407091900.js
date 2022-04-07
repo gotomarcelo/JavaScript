@@ -6,6 +6,6 @@ const cliente = {
   email: 'marcelo@email.com'
 }
 
-cliente.telefone = ["(98) 99999-9999","(98) 99999-9998"];
-
+cliente.telefone = "(98)9999-9999";
+delete cliente.telefone;
 console.log(cliente);
