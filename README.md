@@ -686,3 +686,39 @@ Caso seja necessário fazer uma cópia de um objeto em JavaScript, não podemos 
 ```js
 const copiaCliente = object.create(cliente);
 ```
+
+<h2>Métodos de Objetos:</h2>
+
+<p>No JavaScript, temos alguns métodos que podemos utilizar em nossos algoritmos, são esses:</p>
+
+<li>Object.keys(obj)</li>
+<p>Esse método retorna todos os nomes das chaves</p>
+
+```js
+Object.keys(cliente);
+>> ['nome', 'idade', 'cpf', 'email', 'telefone']
+```
+<li>Object.values(obj)</li>
+<p>Esse método retorna todos os valores do objeto:</p>
+
+```js
+Object.values(cliente);
+>> ['Marcelo', 23, '11111111111', 'marcelo@email.com', Array(2)]
+```
+
+<li>Object.entries(obj)</li>
+<p>Faz com que o retorno seja uma lista de listas, de todas as chaves e valores do objeto:</p>
+
+````js
+console.log(Object.entries(cliente));
+>> [
+  [ 'nome', 'Marcelo' ],
+  [ 'idade', 23 ],
+  [ 'cpf', '11111111111' ],
+  [ 'email', 'marcelo@email.com' ],
+  [ 'telefone', [ '(98) 99999-9999', '(98) 99999-9998' ] ]
+]
+```
+
+
+
