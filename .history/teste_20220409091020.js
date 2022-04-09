@@ -8,4 +8,4 @@ const cliente = {
 
 cliente.telefone = ["(98) 99999-9999","(98) 99999-9998"];
 
-console.log(Object.entries(cliente));
+console.log(Object.keys(cliente););
