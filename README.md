@@ -671,7 +671,7 @@ const cliente = {
 
   depositar: function (valor) {
     this.saldo += valor;
-  }
+  },
 };
 ```
 
@@ -679,7 +679,7 @@ Onde depositar é uma função acumuladora, para o saldo. E para chamar a funç�
 
 <h2>Copiar Objeto:</h2>
 
-Caso seja necessário fazer uma cópia de um objeto em JavaScript, não podemos fazer `const copiaCliente = cliente;`, dessa forma ele só vai fazer com que a nova variável aponte para o objeto `cliente`, dessa forma, caso haja alguma modificação em `copiaCliente`, ela também será feita em `cliente`. 
+Caso seja necessário fazer uma cópia de um objeto em JavaScript, não podemos fazer `const copiaCliente = cliente;`, dessa forma ele só vai fazer com que a nova variável aponte para o objeto `cliente`, dessa forma, caso haja alguma modificação em `copiaCliente`, ela também será feita em `cliente`.
 
 <p>Para realizar uma cópia, usamos o método:</p>
 
@@ -698,6 +698,7 @@ const copiaCliente = object.create(cliente);
 Object.keys(cliente);
 >> ['nome', 'idade', 'cpf', 'email', 'telefone']
 ```
+
 <li>Object.values(obj)</li>
 <p>Esse método retorna todos os valores do objeto:</p>
 
@@ -733,10 +734,12 @@ console.log(Math.max(1,3,5));
 ```
 
 Mas e se a entrada for uma lista?
+
 ```js
 console.log(Math.max([1,3,5]));
 >> NaN
 ```
+
 Observe que muitas funções não aceitam a entrada sendo uma lista, então nesse caso, vamos usar o spread operator:
 
 ```js
@@ -749,22 +752,74 @@ Sabendo disso, existem várias outras maneiras de como usar o spread operator a 
 <h3>Copiar lista:</h3>
 
 ```js
-lista = [1,2,3];
+lista = [1, 2, 3];
 copiaLista = [...lista];
 ```
+
 <h3>Concatenar lista:</h3>
 
 ```js
-lista1 = [1,2,3];
-lista2 = [4,5,6];
+lista1 = [1, 2, 3];
+lista2 = [4, 5, 6];
 combinada = [...lista1, ...lista2];
 ```
 
 e várias outras formas...
 
+<h1>Protótipos</h1>
+Quando começamos os nossos estudos em JavaScript, ouvimos falar que é uma linguagem baseada em protótipos, mas o que isso quer dizer?
 
+<h2>Mecanismos de herança:</h2>
+Protótipos são mecanismos no qual um objetos JavaScript herda de um objeto pai ou passa para o objeto filho. É bem simples, podemos fazer um objeto que tenha um método qualquer, e não há necessidade de refazermos esse mesmo método em outro objeto, basta criarmos um protótipo no qual esse segundo objeto vai herdar o método do primeiro objeto, é isso que chamamos de objeto pai e objeto filho.
 
+O JS tem um objeto anônimo que pode ser referenciado pelo `Object.prototype`, na qual possui varias propriedades internas em que uma delas é a `constructor` que aponta de volta pra o `prototype`.v
 
+> Lembre-se que em JS, toda função é um objeto.
 
+Vamos aos exemplos, vamos criar um objeto que é uma impressora, uma impressora recebe o documento a ser imprimido e ler para verificar se está tudo certo:
 
+```js
+function impressora(documento) {
+  this.documento = documento;
+}
+```
 
+Após ler o documento recebido, ela tem que imprimir:
+
+```js
+impressora.prototype.imprimir = function () {
+  console.log(this.documento);
+};
+```
+
+Agora, vamos jogar um documento para imprimirmos:
+
+```js
+const pdf = new impressora("Documento para impressão.");
+pdf.imprimir();
+
+>> Documento para impressão.
+```
+
+> Perceba que a função imprimir pega emprestado, ou melhor dizendo, aponta para um método já criado e adiciona outro método, de imprimir.
+
+> A função `contructor` foi referenciada quando chamamos a constante `pdf` como um `new impressora()`.
+
+<h3>Super</h3>
+Super é uma palavra-chave para acessar um objeto pai naquele objeto filho:
+
+```js
+class Carro {
+  constructor(marca) {
+    this.marca = marca;
+  }
+}
+
+class Modelo extends Carro {
+  constructor(marca, modelo) {
+    super(marca);
+    this.modelo = modelo;
+  }
+```
+
+<h1>Orientação a Objetos</h1>
