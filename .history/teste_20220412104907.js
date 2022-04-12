@@ -7,4 +7,4 @@ impressora.prototype.imprimir = function () {
 };
 
 const pdf = new impressora("Documento para impressão.");
-pdf.imprimir();
+pfd.imprimir();

@@ -1,10 +1,5 @@
-//quando começamos a estudar o JavaScript, ou ouve falar,
-// é muito comum escutar que o JavaScript é uma linguagem
-//baseada em protótipos, e que tudo em JavaScript é um objeto
-
-//trabalhar com herança, com o conceito de herança,
-// você herdar atributos, propriedades, funções a partir 
-//do protótipo
+//quando começamos a estudar o JavaScript, ou ouve falar, é muito comum escutar que o JavaScript é uma linguagem baseada em protótipos, e que tudo em JavaScript é um objeto
+//trabalhar com herança, com o conceito de herança, você herdar atributos, propriedades, funções a partir do protótipo
 
 //propriedades
 function Cliente(nome,cpf,email,saldo){
